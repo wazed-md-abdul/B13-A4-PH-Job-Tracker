@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html  data-theme="cupcake">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
-
+    <!-- daisy ui + tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
     <!-- font awesome  -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -27,49 +30,54 @@
         * {
             font-family: "Geist", sans-serif;
         }
+         
     </style>
 
 </head>
 
-<body class="bg-[#F8FAFC] ">
-    <header class="w-[80%] mx-auto space-y-7 pt-6">
+<body class=" ">
+    <header class="w-[80%] mx-auto space-y-7 pt-6  bg-[#faf7f5]">
         <h1 class="text-[#002C5C] text-2xl font-bold">Job Application Tracker</h1>
-        <div class="grid grid-cols-3 gap-6">
-            <div class="bg-white rounded-md shadow-md p-5">
+        <div class="grid gap-6 grid-cols-3">
+            <div class="bg-white rounded-md shadow-md p-5  hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
                 <p class="font-medium">Total</p>
-                <h2 id="totalId" class="text-[#002C5C] text-2xl font-bold">0</h2>
+                <h2 id="totalJobs" class="text-[#002C5C] text-2xl font-bold">0</h2>
             </div>
-            <div class="bg-white rounded-md shadow-md p-5">
+            <div class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
                 <p class="font-medium">Interview</p>
-                <h2 id="interviewId" class="text-[green] text-2xl font-bold">0</h2>
+                <h2 id="interviewJobs" class="text-[green] text-2xl font-bold">0</h2>
             </div>
-            <div class="bg-white rounded-md shadow-md p-5">
+            <div class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg ">
                 <p class="font-medium">Rejected</p>
-                <h2 id="rejectedId" class="text-[red] text-2xl font-bold">0</h2>
+                <h2 id="rejectedJobs" class="text-[red] text-2xl font-bold">0</h2>
             </div>
         </div>
+
+        <hr class="my-9  mx-auto opacity-15">
     </header>
-    <hr class="my-9 w-[80%] mx-auto opacity-15">
-    <main>
+    
+    <main id="main" class="">
         <section class="w-[80%] mx-auto space-y-3 pt-2">
-            <div>
+            <div class=" flex justify-between">
                 <h1 class="text-[#002C5C] text-xl font-bold">Available Jobs</h1>
+                <p class="text-[grey]"><span id="totalInSpan">0</span> jobs</p>
             </div>
             <div class="space-x-5">
-                <button class=" p-2 bg-white text-[grey] rounded-md cursor-pointer shadow-md">All</button>
-                <button class=" p-2 bg-white text-[grey] rounded-md cursor-pointer shadow-md">Interview</button>
-                <button class=" p-2 bg-white text-[grey] rounded-md cursor-pointer shadow-md">Rejected</button>
+                <button onclick="toggleStyle ('all-filter-btn')" id="all-filter-btn" class=" btn btn-info cursor-pointer  ">All</button>
+                <button onclick="toggleStyle ('accepted-filter-btn')" id="accepted-filter-btn" class=" btn btn-soft cursor-pointer ">Interview</button>
+                <button onclick="toggleStyle ('rejected-filter-btn')" id="rejected-filter-btn" class="  btn btn-soft cursor-pointer">Rejected</button>
             </div>
         </section>
-        <section class="w-[80%] mx-auto space-y-3 pt-2 mt-9">
+        <section id="cardsDiv" class="w-[80%] mx-auto space-y-3 pt-2 mt-9">
 
-            <div id="card-1 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-1 " class="bg-white rounded-md p-9 space-y-4  shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">Mobile First Corp</h1>
                         <p class="text-[grey]">React Native Developer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button  class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm"> Remote
@@ -85,13 +93,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-2 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-2 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">WebFlow Agency</h1>
                         <p class="text-[grey]">Web Designer & Developer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm"> Los Angeles, CA
@@ -107,13 +115,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-3 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-3 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">DataViz Solutions</h1>
                         <p class="text-[grey]">Data Visualization Specialist</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm"> Boston, MA
@@ -130,13 +138,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-4 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-4 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">CloudFirst Inc</h1>
                         <p class="text-[grey]">Backend Developer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm">Seattle, WA
@@ -152,13 +160,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-5 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-5 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">Innovation Labs</h1>
                         <p class="text-[grey]">UI/UX Engineer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
                 <p class="text-[grey] text-sm">
                     Austin, TX
@@ -174,13 +182,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-6 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-6 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">MegaCorp Solutions</h1>
                         <p class="text-[grey]">JavaScript Developer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm">New York, NY
@@ -195,13 +203,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-7 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-7 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">StartupXYZ</h1>
                         <p class="text-[grey]">Full Stack Engineer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm">Remote
@@ -217,13 +225,13 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-8 " class="bg-white rounded-md p-9 space-y-4">
+            <div id="card-8 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
                         <h1 class="text-[#002C5C] text-[15px] font-bold">TechCorp Industries</h1>
                         <p class="text-[grey]">Senior Frontend Developer</p>
                     </div>
-                    <button class="cursor-pointer"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
                 <p class="text-[grey] text-sm">San Francisco, CA
@@ -232,24 +240,23 @@
                     •
                     $130,000 - $175,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">We are looking for an experienced Frontend Developer to build scalable
-                    web applications using React and TypeScript. You will work with a talented team on cutting-edge
+                <p class="text-[grey] text-sm">We are looking for an experienced Frontend Developer to build scalableshadow-mdou will work with a talented team on cutting-edge
                     projects.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div class=" h-96 bg-white rounded-md flex flex-col justify-center items-center  ">
+            
+        </section>
+        <div class=" h-96 bg-white rounded-md flex flex-col justify-center items-center w-[80%] mx-auto pt-2 mt-9 shadow-md  ">
                 <div><img src="/jobs.png" alt="" srcset=""></div>
                 <h1 class="text-[#002C5C] text-xl font-semibold">No jobs available</h1>
                 <p class="text-[grey] text-sm">Check back soon for new job opportunities</p>
             </div>
-
-
-        </section>
     </main>
 
+<script src="./script/script.js"></script>
 
 </body>
 
