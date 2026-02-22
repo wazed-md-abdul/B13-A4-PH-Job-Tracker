@@ -1,5 +1,5 @@
-<!DOCTYPE html >
-<html  data-theme="cupcake">
+<!DOCTYPE html>
+<html data-theme="cupcake">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,6 @@
         * {
             font-family: "Geist", sans-serif;
         }
-         
     </style>
 
 </head>
@@ -39,15 +38,18 @@
     <header class="w-[80%] mx-auto space-y-7 pt-6  bg-[#faf7f5]">
         <h1 class="text-[#002C5C] text-2xl font-bold">Job Application Tracker</h1>
         <div class="grid gap-6 grid-cols-3">
-            <div class="bg-white rounded-md shadow-md p-5  hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div
+                class="bg-white rounded-md shadow-md p-5  hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
                 <p class="font-medium">Total</p>
                 <h2 id="totalJobs" class="text-[#002C5C] text-2xl font-bold">0</h2>
             </div>
-            <div class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div
+                class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg">
                 <p class="font-medium">Interview</p>
                 <h2 id="interviewJobs" class="text-[green] text-2xl font-bold">0</h2>
             </div>
-            <div class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg ">
+            <div
+                class="bg-white rounded-md shadow-md p-5 hover:scale-102 hover:bg-gray-200 transition-all duration-300 ease-in-out hover:shadow-lg ">
                 <p class="font-medium">Rejected</p>
                 <h2 id="rejectedJobs" class="text-[red] text-2xl font-bold">0</h2>
             </div>
@@ -55,7 +57,7 @@
 
         <hr class="my-9  mx-auto opacity-15">
     </header>
-    
+
     <main id="main" class="">
         <section class="w-[80%] mx-auto space-y-3 pt-2">
             <div class=" flex justify-between">
@@ -63,10 +65,18 @@
                 <p class="text-[grey]"><span id="totalInSpan">0</span> jobs</p>
             </div>
             <div class="space-x-5">
-                <button onclick="toggleStyle ('all-filter-btn')" id="all-filter-btn" class=" btn btn-info cursor-pointer  ">All</button>
-                <button onclick="toggleStyle ('accepted-filter-btn')" id="accepted-filter-btn" class=" btn btn-soft cursor-pointer ">Interview</button>
-                <button onclick="toggleStyle ('rejected-filter-btn')" id="rejected-filter-btn" class="  btn btn-soft cursor-pointer">Rejected</button>
+                <button onclick="toggleStyle ('all-filter-btn')" id="all-filter-btn"
+                    class=" btn btn-info cursor-pointer  ">All</button>
+                <button onclick="toggleStyle ('accepted-filter-btn')" id="accepted-filter-btn"
+                    class=" btn btn-soft cursor-pointer ">Interview</button>
+                <button onclick="toggleStyle ('rejected-filter-btn')" id="rejected-filter-btn"
+                    class="  btn btn-soft cursor-pointer">Rejected</button>
             </div>
+        </section>
+        <section id="sectionForAccepted" class="w-[80%] mx-auto space-y-3 pt-2 mt-9">
+
+        </section>
+        <section id="sectionForRejected" class="w-[80%] mx-auto space-y-3 pt-2 mt-9">
         </section>
         <section id="cardsDiv" class="w-[80%] mx-auto space-y-3 pt-2 mt-9">
 
@@ -74,63 +84,68 @@
                hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">Mobile First Corp</h1>
-                        <p class="text-[grey]">React Native Developer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">Mobile First Corp</h1>
+                        <p id="neededSkill" class="text-[grey]">React Native Developer</p>
                     </div>
-                    <button  class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm"> Remote
+                <p id="salaryData" class="text-[grey] text-sm"> Remote
                     •
                     Full-time
                     •
                     $130,000 - $175,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Build cross-platform mobile applications using React Native. Work on
+                <p id="jobAbout" class="text-[grey] text-sm">Build cross-platform mobile applications using React
+                    Native. Work on
                     products used by millions of users worldwide.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-2 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-2 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">WebFlow Agency</h1>
-                        <p class="text-[grey]">Web Designer & Developer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">WebFlow Agency</h1>
+                        <p id="neededSkill" class="text-[grey]">Web Designer & Developer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm"> Los Angeles, CA
+                <p id="salaryData" class="text-[grey] text-sm"> Los Angeles, CA
                     •
                     Part-time
                     •
                     $80,000 - $120,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Create stunning web experiences for high-profile clients. Must have
+                <p id="jobAbout" class="text-[grey] text-sm">Create stunning web experiences for high-profile clients.
+                    Must have
                     portfolio and experience with modern web design trends.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-3 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-3 " class="bg-white rounded-md p-9 space-y-4shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">DataViz Solutions</h1>
-                        <p class="text-[grey]">Data Visualization Specialist</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">DataViz Solutions</h1>
+                        <p id="neededSkill" class="text-[grey]">Data Visualization Specialist</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm"> Boston, MA
+                <p id="salaryData" class="text-[grey] text-sm"> Boston, MA
                     •
                     Full-time
                     •
                     $125,000 - $165,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Transform complex data into compelling visualizations. Required skills:
+                <p jobAbout class="text-[grey] text-sm">Transform complex data into compelling visualizations. Required
+                    skills:
                     D3.js, React, and strong analytical thinking.
                 </p>
                 <div class="space-x-2">
@@ -138,125 +153,138 @@
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-4 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-4 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">CloudFirst Inc</h1>
-                        <p class="text-[grey]">Backend Developer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">CloudFirst Inc</h1>
+                        <p id="neededSkill" class="text-[grey]">Backend Developer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm">Seattle, WA
+                <p id="salaryData" class="text-[grey] text-sm">Seattle, WA
                     •
                     Full-time
                     •
                     $140,000 - $190,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Design and maintain scalable backend systems using Python and AWS. Work
+                <p id="jobAbout" class="text-[grey] text-sm">Design and maintain scalable backend systems using Python
+                    and AWS. Work
                     with modern DevOps practices and cloud infrastructure.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-5 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-5 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">Innovation Labs</h1>
-                        <p class="text-[grey]">UI/UX Engineer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">Innovation Labs</h1>
+                        <p id="neededSkill" class="text-[grey]">UI/UX Engineer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
-                <p class="text-[grey] text-sm">
+                <p id="salaryData" class="text-[grey] text-sm">
                     Austin, TX
                     •
                     Full-time
                     •
                     $110,000 - $150,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Create beautiful and functional user interfaces for our suite of
+                <p id="jobAbout" class="text-[grey] text-sm">Create beautiful and functional user interfaces for our
+                    suite of
                     products. Strong design skills and frontend development expertise required.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-6 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-6 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">MegaCorp Solutions</h1>
-                        <p class="text-[grey]">JavaScript Developer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">MegaCorp Solutions</h1>
+                        <p id="neededSkill" class="text-[grey]">JavaScript Developer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm">New York, NY
+                <p id="salaryData" class="text-[grey] text-sm">New York, NY
                     •
                     Full-time
                     •
                     $130,000 - $170,00</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
+                <p id="jobAbout" class="text-[grey] text-sm">Build enterprise applications with JavaScript and modern
+                    frameworks. We
+                    offer competitive compensation, health insurance, and professional development opportunities.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-7 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-7 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">StartupXYZ</h1>
-                        <p class="text-[grey]">Full Stack Engineer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">StartupXYZ</h1>
+                        <p id="neededSkill" class="text-[grey]">Full Stack Engineer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm">Remote
+                <p id="salaryData" class="text-[grey] text-sm">Remote
                     •
                     Full-time
                     •
                     $120,000 - $160,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">Join our fast-growing startup and work on our core platform. Experience
+                <p id="jobAbout" class="text-[grey] text-sm">Join our fast-growing startup and work on our core
+                    platform. Experience
                     with Node.js and React required. Great benefits and equity package included.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            <div id="card-8 " class="bg-white rounded-md p-9 space-y-4 shadow-md">
+            <div id="card-8 " class="bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out
+               hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl">
                 <div class="flex justify-between items-center space-y-4">
                     <div class="space-y-2">
-                        <h1 class="text-[#002C5C] text-[15px] font-bold">TechCorp Industries</h1>
-                        <p class="text-[grey]">Senior Frontend Developer</p>
+                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">TechCorp Industries</h1>
+                        <p id="neededSkill" class="text-[grey]">Senior Frontend Developer</p>
                     </div>
                     <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-                <p class="text-[grey] text-sm">San Francisco, CA
+                <p id="salaryData" class="text-[grey] text-sm">San Francisco, CA
                     •
                     Full-time
                     •
                     $130,000 - $175,000</p>
                 <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p class="text-[grey] text-sm">We are looking for an experienced Frontend Developer to build scalableshadow-mdou will work with a talented team on cutting-edge
+                <p id="jobAbout" class="text-[grey] text-sm">We are looking for an experienced Frontend Developer to
+                    build
+                    scalableshadow-mdou will work with a talented team on cutting-edge
                     projects.</p>
                 <div class="space-x-2">
                     <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
                     <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
                 </div>
             </div>
-            
+
         </section>
-        <div class=" h-96 bg-white rounded-md flex flex-col justify-center items-center w-[80%] mx-auto pt-2 mt-9 shadow-md  ">
-                <div><img src="/jobs.png" alt="" srcset=""></div>
-                <h1 class="text-[#002C5C] text-xl font-semibold">No jobs available</h1>
-                <p class="text-[grey] text-sm">Check back soon for new job opportunities</p>
-            </div>
+        <div
+            class=" h-96 bg-white rounded-md flex flex-col justify-center items-center w-[80%] mx-auto pt-2 mt-9 shadow-md  ">
+            <div><img src="/jobs.png" alt="" srcset=""></div>
+            <h1 class="text-[#002C5C] text-xl font-semibold">No jobs available</h1>
+            <p class="text-[grey] text-sm">Check back soon for new job opportunities</p>
+        </div>
     </main>
 
-<script src="./script/script.js"></script>
+    <script src="./script/script.js"></script>
 
 </body>
 
