@@ -1,125 +1,166 @@
-
 let rejectedList = [];
 let acceptedList = [];
 
-function getId (id){
-    const idGotten = document.getElementById(id);
-    return idGotten;
+function getId(id) {
+    return document.getElementById(id);
 }
 
 let totalCounts = getId("totalJobs");
-let totalCountsInSpan = getId("totalInSpan")
+let totalCountsInSpan = getId("totalInSpan");
 let totalIntAcp = getId("interviewJobs");
 let totalIntRej = getId("rejectedJobs");
 let allCards = getId("cardsDiv");
-
-
-const mainContainer =getId("main");
+let mainContainer = getId("main");
 
 totalCounts.innerText = allCards.children.length;
-totalCountsInSpan.innerText=allCards.children.length;
+totalCountsInSpan.innerText = allCards.children.length;
 
-function  lengthCheck ()
-{
-
-
-totalIntAcp.innerText = acceptedList.length; 
-totalIntRej.innerText = rejectedList.length;
-return;
+function lengthCheck() {
+    totalIntAcp.innerText = acceptedList.length;
+    totalIntRej.innerText = rejectedList.length;
 }
 
 const allBtn = getId("all-filter-btn");
 const acceptedBtn = getId("accepted-filter-btn");
 const rejectedBtn = getId("rejected-filter-btn");
-const sectionForAccepted =getId("sectionForAccepted");
+const sectionForAccepted = getId("sectionForAccepted");
 const sectionForRejected = getId("sectionForRejected");
 
+function toggleStyle(id) {
 
-function toggleStyle (id){
+    [allBtn, acceptedBtn, rejectedBtn].forEach(btn => {
+        btn.classList.remove('btn-info');
+        btn.classList.add('btn-soft');
+    });
 
-    allBtn.classList.remove('btn', 'btn-info');    
-    acceptedBtn.classList.remove('btn', 'btn-info');
-    rejectedBtn.classList.remove('btn', 'btn-info');
-    
-     allBtn.classList.add('btn', 'btn-soft');    
-    acceptedBtn.classList.add('btn', 'btn-soft');
-    rejectedBtn.classList.add('btn', 'btn-soft');
-    
-    const selected = document.getElementById(id) ;
-    selected.classList.remove('btn','btn-soft');
-    selected.classList.add('btn','btn-info');
-    if(id == 'accepted-filter-btn'){
-        allCards.classList.add('hidden')
-        sectionForAccepted.classList.remove('hidden')
+    const selected = getId(id);
+    selected.classList.remove('btn-soft');
+    selected.classList.add('btn-info');
+
+    if (id === "accepted-filter-btn") {
+        allCards.classList.add("hidden");
+        sectionForAccepted.classList.remove("hidden");
+        sectionForRejected.classList.add("hidden");
     }
-    
+    else if (id === "rejected-filter-btn") {
+        allCards.classList.add("hidden");
+        sectionForRejected.classList.remove("hidden");
+        sectionForAccepted.classList.add("hidden");
+    }
+    else {
+        allCards.classList.remove("hidden");
+        sectionForAccepted.classList.add("hidden");
+        sectionForRejected.classList.add("hidden");
+    }
 }
- 
-mainContainer.addEventListener ('click', function (event){
-    
-   if(event.target.classList.contains("border-green-600"))
-    {
-     const decision = event.target.parentNode.parentNode;
-    const  companyName = decision.querySelector('#companyName').innerText;
-    const neededSkill = decision.querySelector("#neededSkill").innerText;
-    const salaryData = decision.querySelector("#salaryData").innerText;
-    const jobAbout = decision.querySelector ("#jobAbout").innerText;
 
-    const cardInfo = { companyName,
-                        neededSkill,
-                        salaryData,
-                        jobAbout
-    }    
-   const jobExist = acceptedList.find(item=> item.companyName == cardInfo.companyName)
-    decision.querySelector(".liveStatus").innerText= "Interviewed"
-    decision.querySelector(".liveStatus").className = " btn btn-soft text-[green] border-green-600 "
-   if (!jobExist)
-   {
-    acceptedList.push(cardInfo);
-   }
-   
-    lengthCheck ();
-   
-    renderAccepted ()
-   }
-   
-})
+mainContainer.addEventListener("click", function (event) {
 
-function renderAccepted ()
-{
-    sectionForAccepted.innerHTML = '';
+    const card = event.target.closest(".job-card");
+    if (!card) return;
 
-    for( let accepted of acceptedList)
-    {
-        
-        let div = document.createElement("div")
-    div.className= "bg-white rounded-md p-9 space-y-4 shadow-md  transition-all duration-300 ease-in-out  hover:bg-blue-100 hover:-translate-y-1 hover:shadow-xl "
-    div.innerHTML = `<div class="flex justify-between items-center space-y-4">
-                    <div class="space-y-2">
-                        <h1 id="companyName" class="text-[#002C5C] text-[15px] font-bold">Mobile First Corp</h1>
-                        <p id="neededSkill" class="text-[grey]">React Native Developer</p>
-                    </div>
-                    <button class="cursor-pointer btn btn-error"><i class="fa-regular fa-trash-can"></i></button>
+    const companyName = card.querySelector(".companyName").innerText;
+    const neededSkill = card.querySelector(".neededSkill").innerText;
+    const salaryData = card.querySelector(".salaryData").innerText;
+    const jobAbout = card.querySelector(".jobAbout").innerText;
+
+    const cardInfo = { companyName, neededSkill, salaryData, jobAbout };
+
+    if (event.target.classList.contains("border-green-600")) {
+
+        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+        const exists = acceptedList.find(item => item.companyName === companyName);
+        if (!exists) acceptedList.push(cardInfo);
+
+        const statusBtn = card.querySelector(".liveStatus");
+        statusBtn.innerText = "Interviewed";
+        statusBtn.className = "liveStatus btn btn-soft text-[green] border-green-600";
+
+        lengthCheck();
+        renderAccepted();
+        renderRejected();
+    }
+
+    if (event.target.classList.contains("border-red-600")) {
+
+        acceptedList = acceptedList.filter(item => item.companyName !== companyName);
+
+        const exists = rejectedList.find(item => item.companyName === companyName);
+        if (!exists) rejectedList.push(cardInfo);
+
+        const statusBtn = card.querySelector(".liveStatus");
+        statusBtn.innerText = "Rejected";
+        statusBtn.className = "liveStatus btn btn-soft text-[red] border-red-600";
+
+        lengthCheck();
+        renderAccepted();
+        renderRejected();
+    }
+});
+
+function renderAccepted() {
+
+    sectionForAccepted.innerHTML = "";
+
+    acceptedList.forEach(accepted => {
+
+        const div = document.createElement("div");
+        div.className = "job-card bg-white rounded-md p-9 space-y-4 shadow-md";
+
+        div.innerHTML = `
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="companyName text-[#002C5C] font-bold">${accepted.companyName}</h1>
+                    <p class="neededSkill text-gray-500">${accepted.neededSkill}</p>
                 </div>
+            </div>
 
-                <p id="salaryData" class="text-[grey] text-sm"> Remote
-                    •
-                    Full-time
-                    •
-                    $130,000 - $175,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] border-none shadow-md"> Not Applied</button>
-                <p id="jobAbout" class="text-[grey] text-sm">Build cross-platform mobile applications using React
-                    Native. Work on
-                    products used by millions of users worldwide.</p>
-                <div class="space-x-2">
-                    <button class="btn btn-soft text-[green] border-green-600 bg-white">Interview</button>
-                    <button class="btn btn-soft text-[red] bg-white border-red-600">Rejected</button>
-                </div>
+            <p class="salaryData text-gray-500 text-sm">${accepted.salaryData}</p>
+            <button class="liveStatus btn btn-soft text-[green] border-green-600">
+                Interviewed
+            </button>
+            <p class="jobAbout text-gray-500 text-sm">${accepted.jobAbout}</p>
 
-    ` 
+            <div class="space-x-2">
+                <button class="btn btn-soft text-[green] border-green-600">Interview</button>
+                <button class="btn btn-soft text-[red] border-red-600">Rejected</button>
+            </div>
+        `;
+
         sectionForAccepted.append(div);
-    
-    }
+    });
 }
 
+function renderRejected() {
 
+    sectionForRejected.innerHTML = "";
+
+    rejectedList.forEach(rejected => {
+
+        const div = document.createElement("div");
+        div.className = "job-card bg-white rounded-md p-9 space-y-4 shadow-md";
+
+        div.innerHTML = `
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="companyName text-[#002C5C] font-bold">${rejected.companyName}</h1>
+                    <p class="neededSkill text-gray-500">${rejected.neededSkill}</p>
+                </div>
+            </div>
+
+            <p class="salaryData text-gray-500 text-sm">${rejected.salaryData}</p>
+            <button class="liveStatus btn btn-soft text-[red] border-red-600">
+                Rejected
+            </button>
+            <p class="jobAbout text-gray-500 text-sm">${rejected.jobAbout}</p>
+
+            <div class="space-x-2">
+                <button class="btn btn-soft text-[green] border-green-600">Interview</button>
+                <button class="btn btn-soft text-[red] border-red-600">Rejected</button>
+            </div>
+        `;
+
+        sectionForRejected.append(div);
+    });
+}
