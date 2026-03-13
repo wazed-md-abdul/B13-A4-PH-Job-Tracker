@@ -2,8 +2,14 @@
 <p align="center"> <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&pause=1000&color=22C55E&center=true&vCenter=true&width=900&lines=PH+Job+Tracker;Track+Your+Job+Applications;Manage+Career+Opportunities;Stay+Organized+in+Your+Job+Search" /> </p> <p align="center"> <img src="https://img.shields.io/github/stars/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/forks/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/issues/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/license/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> </p>
 🌐 Project Repository
 
-🔗 GitHub Repo
-https://github.com/wazed-md-abdul/B13-A4-PH-Job-Tracker
+🌐 Live Demo
+
+🚀 Try the application here
+
+<p align="center"> <a href="https://wazed-md-abdul.github.io/B13-A4-PH-Job-Tracker/"> <img src="https://img.shields.io/badge/Live%20Demo-View%20Project-22c55e?style=for-the-badge&logo=vercel&logoColor=white"/> </a> </p>
+
+🔗 Live Website:
+https://wazed-md-abdul.github.io/B13-A4-PH-Job-Tracker/
 
 📖 About The Project
 
@@ -25,8 +31,6 @@ The project demonstrates how a job tracking system can improve productivity and 
 🛠 Tech Stack
 Frontend
 <p> <img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind" /> </p>
-Backend / Tools
-<p> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,firebase" /> </p>
 Development Tools
 <p> <img src="https://skillicons.dev/icons?i=git,github,vscode" /> </p>
 
