@@ -1,44 +1,45 @@
+💼 PH Job Tracker
+<p align="center"> <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&pause=1000&color=22C55E&center=true&vCenter=true&width=900&lines=PH+Job+Tracker;Track+Your+Job+Applications;Manage+Career+Opportunities;Stay+Organized+in+Your+Job+Search" /> </p> <p align="center"> <img src="https://img.shields.io/github/stars/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/forks/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/issues/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> <img src="https://img.shields.io/github/license/wazed-md-abdul/B13-A4-PH-Job-Tracker?style=for-the-badge"/> </p>
+🌐 Project Repository
 
+🔗 GitHub Repo
+https://github.com/wazed-md-abdul/B13-A4-PH-Job-Tracker
 
+📖 About The Project
 
-## Answers to Questions
+PH Job Tracker is a web application designed to help users manage and track their job applications efficiently.
 
-### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
-answer:
-getElementById() নির্দিষ্ট ID অনুযায়ী একটি মাত্র element রিটার্ন করে।
+Job searching can involve applying to many companies across multiple platforms. This application allows users to organize job opportunities, track application status, and monitor progress in a simple and structured interface.
 
-getElementsByClassName() নির্দিষ্ট class অনুযায়ী একাধিক element রিটার্ন করে ।
+The project demonstrates how a job tracking system can improve productivity and keep the job search process organized.
 
-querySelector() ব্যবহার করে প্রথম ম্যাচ করা element রিটার্ন করে।
+✨ Key Features
 
-querySelectorAll()  ব্যবহার করে সব ম্যাচ করা element রিটার্ন করে ।
-### 2. How do you create and insert a new element into the DOM?
-answer:
-let div = document.createElement("div");
-div.InnerText = "Hello World";
-document.body.appendChild(div);
+✔️ Track job applications
+✔️ Save job opportunities
+✔️ Manage application status
+✔️ Organized job tracking dashboard
+✔️ Responsive UI design
+✔️ Easy-to-use interface
 
-এখানে প্রথমে div তৈরি করেছি, তারপর লেখা যোগ করেছি, তারপর সেটা body-এর ভিতরে বসিয়েছি।
-এভাবেই নতুন element তৈরি করে DOM-এ insert করা হয়
-### 3. What is Event Bubbling? And how does it work?
-answer:
-Event Bubbling হলো এমন একটি প্রক্রিয়া যেখানে কোনো এলিমেন্টে ইভেন্ট ঘটলে সেটি প্রথমে সেই এলিমেন্টে  হয়, তারপর ধাপে ধাপে তার parent, grandparent হয়ে উপরের দিকে যায়।
+🛠 Tech Stack
+Frontend
+<p> <img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind" /> </p>
+Backend / Tools
+<p> <img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,firebase" /> </p>
+Development Tools
+<p> <img src="https://skillicons.dev/icons?i=git,github,vscode" /> </p>
 
-অর্থাৎ ইভেন্ট নিচের এলিমেন্টে থেকে শুরু করে DOM tree-এর উপরের দিকে যায়।
+🎯 Learning Objectives
 
-### 4. What is Event Delegation in JavaScript? Why is it useful?
-answer:
-Event Delegation হলো এমন একটি পদ্ধতি যেখানে প্রত্যেকটি চাইল্ড এলিমেন্টে আলাদা করে ইভেন্ট লিসেনার যোগ না করে, তাদের parent এলিমেন্টে একটি single event listener যোগ করা হয়।
+This project helped practice:
 
-কেন এটি গুরুত্বপূর্ণ?
+Frontend development
 
-Performance উন্নত হয়, কারণ অনেকগুলো element-এ আলাদা listener বসাতে হয় না।
+Job tracking logic
 
-কোড সংক্ষিপ্ত, পরিষ্কার এবং maintain করা সহজ হয়।
-### 5. What is the difference between preventDefault() and stopPropagation() methods?
-answer:
-দুটি দুইধরনের জিনিস।preventDefault() এবং stopPropagation() এর মধ্যে মূল পার্থক্য হলো তারা event-এর ভিন্ন ভিন্ন দিক নিয়ন্ত্রণ করে।
-preventDefault()  Browser-এর default কাজ বন্ধ করে
+Data management
 
-stopPropagation()  Event-এর উপরের দিকে ছড়িয়ে যাওয়া (bubbling) বন্ধ করে
+Component-based architecture
 
+Responsive UI development
